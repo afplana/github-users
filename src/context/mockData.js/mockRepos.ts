@@ -1,4 +1,6 @@
-export default [
+import { GithubRepo } from "../../types";
+
+export const mockRepos: GithubRepo[] = [
   {
     id: 239164394,
     node_id: "MDEwOlJlcG9zaXRvcnkyMzkxNjQzOTQ=",

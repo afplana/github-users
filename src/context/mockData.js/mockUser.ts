@@ -1,4 +1,6 @@
-export default {
+import { GithubUser } from '../../types'
+
+export const mockUser: GithubUser = {
   login: 'john-smilga',
   id: 42133389,
   node_id: 'MDQ6VXNlcjQyMTMzMzg5',

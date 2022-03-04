@@ -1,4 +1,6 @@
-export default [
+import { BasicGithubUser } from "../../types";
+
+export const mockFollowers: BasicGithubUser[] = [
   {
     login: 'ThaELL1',
     id: 37319124,
