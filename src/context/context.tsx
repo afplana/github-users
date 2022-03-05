@@ -1,9 +1,9 @@
 import { useState, useEffect, createContext, FC } from 'react';
-import { mockUser } from './mockData.js/mockUser';
-import { mockRepos } from './mockData.js/mockRepos';
-import { mockFollowers } from './mockData.js/mockFollowers';
 import axios from 'axios';
 import { BasicGithubUser, GithubRepo, GithubUser } from '../types';
+import { initialUser } from './initialData/initialUser'
+import { initialRepos } from './initialData/initialRepos'
+import { initialFollowers } from './initialData/initialFollowers'
 
 const rootUrl = 'https://api.github.com';
 
@@ -19,9 +19,9 @@ export type GithubState = {
 
 const GithubContext = createContext<GithubState>(
     {
-        githubUser: mockUser,
-        repos: mockRepos,
-        followers: mockFollowers,
+        githubUser: initialUser,
+        repos: initialRepos,
+        followers: initialFollowers,
         requests: 60,
         error: { show: false, msg: "" },
         searchGithubUser: (user: string) => user,
@@ -30,9 +30,9 @@ const GithubContext = createContext<GithubState>(
 );
 
 const GithubProvider: FC = ({ children }) => {
-    const [githubUser, setGithubUser] = useState<GithubUser>(mockUser)
-    const [repos, setRepos] = useState<GithubRepo[]>(mockRepos)
-    const [followers, setFollowers] = useState<BasicGithubUser[]>(mockFollowers)
+    const [githubUser, setGithubUser] = useState<GithubUser>(initialUser)
+    const [repos, setRepos] = useState<GithubRepo[]>(initialRepos)
+    const [followers, setFollowers] = useState<BasicGithubUser[]>(initialFollowers)
 
     const [requests, setRequests] = useState<number>(60)
     const [isLoading, setIsLoading] = useState(false)

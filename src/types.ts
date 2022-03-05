@@ -1,12 +1,12 @@
 export interface GithubUser extends BasicGithubUser {
   name: string;
-  company: string;
+  company: string | null;
   blog: string;
   location: string;
   email: string | null;
   hireable: string | null;
   bio: string;
-  twitter_username: string;
+  twitter_username: string | null;
   public_repos: number;
   public_gists: number;
   followers: number;
@@ -89,6 +89,10 @@ export interface GithubRepo {
   open_issues: number;
   watchers: number;
   default_branch: string;
+  allow_forking?: boolean;
+  is_template?: boolean;
+  topics?: string[];
+  visibility?: string;
 }
 
 export interface BasicGithubUser {
@@ -116,6 +120,6 @@ export interface License {
   key: string;
   name: string;
   spdx_id: string;
-  url: string;
+  url: string | null;
   node_id: string;
 }
